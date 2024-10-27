@@ -93,15 +93,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp NUMBER_1>,
-                <&macro_tap>,
-                <&kp NUMBER_6>,
-                <&macro_tap>,
-                <&kp N8>,
-                <&macro_release>;
+                <&macro_press &kp LEFT_ALT>,
+                <&macro_tap &kp N1 &kp N6 &kp N8>,
+                <&macro_release  &kp LEFT_ALT>;
 
             label = "UD_QST";
         };
@@ -110,17 +104,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp N0>,
-                <&macro_tap>,
-                <&kp NUMBER_1>,
-                <&macro_tap>,
-                <&kp NUMBER_6>,
-                <&macro_tap>,
-                <&kp N8>,
-                <&macro_release>;
+                <&macro_press &kp LEFT_ALT>,
+                <&macro_tap &kp N0 &kp N1 &kp N6 &kp N8>,
+                <&macro_release &kp LEFT_ALT>;
 
             label = "UD_EXC";
         };
@@ -131,9 +117,9 @@
 
         default_layer {
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            // |  TAB |  '  |  ,  |  .  |  P  |  Y  |   |  F  |  G   |  C  |  R  |  L  | BKSP |
+            // | CTRL |  A  |  O  |  E  |  U  |  I  |   |  D  |  H   |  T  |  N  |  S  |  -   |
+            // | SHFT |  ;  |  Q  |  J  |  K  |  X  |   |  B  |  M   |  W  |  V  |  Z  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             display-name = "Dvorak";
