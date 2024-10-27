@@ -15,6 +15,13 @@
             #binding-cells = <0>;
             bindings = <&kp LSHFT>, <&kp CLCK>;
         };
+
+        TD_SFBT: TD_SFBT {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SFBT";
+            #binding-cells = <0>;
+            bindings = <&kp F1>, <&bootloader>;
+        };
     };
 
     keymap {
@@ -45,10 +52,10 @@
 
             display-name = "Lower";
             bindings = <
-&kp LC(X)  &kp F1  &kp F2   &kp F3    &kp F4   &kp C_VOL_UP    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS     &kp KP_DIVIDE    &trans
-&kp LC(C)  &kp F5  &kp F6   &kp F7    &kp F8   &kp C_VOL_DN    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY  &kp KP_NLCK
-&kp LC(V)  &kp F9  &kp F10  &kp F11   &kp F12  &kp K_MUTE      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
-                            &kp LGUI  &trans   &kp SPACE       &kp RET          &trans           &kp LALT
+&kp LC(X)  &TD_SFBT  &kp F2   &kp F3    &kp F4   &kp C_VOL_UP    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS     &kp KP_DIVIDE    &trans
+&kp LC(C)  &kp F5    &kp F6   &kp F7    &kp F8   &kp C_VOL_DN    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY  &kp KP_NLCK
+&kp LC(V)  &kp F9    &kp F10  &kp F11   &kp F12  &kp C_MUTE      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
+                              &kp LGUI  &trans   &kp SPACE       &kp RET          &trans           &kp LALT
             >;
         };
 
