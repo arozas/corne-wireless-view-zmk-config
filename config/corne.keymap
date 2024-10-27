@@ -11,7 +11,7 @@
     behaviors {
         TD_CAPS: TD_CAPS {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_CAPS";
+            label = "Left Shift";
             #binding-cells = <0>;
             bindings = <&kp LSHFT>, <&kp CLCK>;
         };
@@ -21,6 +21,81 @@
             label = "TD_SFBT";
             #binding-cells = <0>;
             bindings = <&kp F1>, <&bootloader>;
+        };
+
+        TD_ALT: TD_ALT {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ALT";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_ALT>, <&kp LEFT_ALT>;
+
+            tapping-term-ms = <100>;
+        };
+
+        TD_QST: TD_QST {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_QST";
+            #binding-cells = <0>;
+            bindings = <&kp QUESTION>, <&kp RC(SLASH)>;
+
+            tapping-term-ms = <100>;
+        };
+
+        TD_BSLS: TD_BSLS {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_BSLS";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSLASH>, <&kp PIPE>;
+
+            tapping-term-ms = <100>;
+        };
+
+        TD_SLEQ: TD_SLEQ {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SLEQ";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&kp SLASH>, <&kp EQUAL>;
+        };
+
+        TD_EXQ: TD_EXQ {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_EXQ";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL>, <&kp RA(EXCL)>;
+        };
+
+        TD_LPLB: TD_LPLB {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LPLB";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS>, <&kp LESS_THAN>;
+
+            tapping-term-ms = <100>;
+        };
+
+        TD_RPRB: TD_RPRB {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RPRB";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&kp RIGHT_PARENTHESIS>, <&kp GREATER_THAN>;
+        };
+
+        TD_LBLK: TD_LBLK {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LBLK";
+            #binding-cells = <0>;
+            tapping-term-ms = <101>;
+            bindings = <&kp LEFT_BRACE>, <&kp LEFT_BRACKET>;
+        };
+
+        TD_RBRK: TD_RBRK {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RBRK";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&kp RIGHT_BRACE>, <&kp RIGHT_BRACKET>;
         };
     };
 
@@ -34,12 +109,12 @@
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
-            display-name = "Base";
+            display-name = "Dvorak";
             bindings = <
-&kp TAB    &kp SQT        &kp COMMA  &kp PERIOD  &kp P  &kp Y        &kp F    &kp G  &kp C     &kp R  &kp L  &kp BSPC
-&kp LCTRL  &kp A          &kp O      &kp E       &kp U  &kp I        &kp D    &kp H  &kp T     &kp N  &kp S  &kp MINUS
-&TD_CAPS   &kp SEMICOLON  &kp Q      &kp J       &kp K  &kp X        &kp B    &kp M  &kp W     &kp V  &kp Z  &kp ESC
-                                     &kp LGUI    &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
+&kp TAB    &kp SQT        &kp COMMA  &kp PERIOD  &kp P  &kp Y        &kp F    &kp G  &kp C    &kp R  &kp L  &kp BSPC
+&kp LCTRL  &kp A          &kp O      &kp E       &kp U  &kp I        &kp D    &kp H  &kp T    &kp N  &kp S  &kp MINUS
+&TD_CAPS   &kp SEMICOLON  &kp Q      &kp J       &kp K  &kp X        &kp B    &kp M  &kp W    &kp V  &kp Z  &kp ESC
+                                     &kp LGUI    &mo 1  &kp SPACE    &kp RET  &mo 2  &TD_ALT
             >;
         };
 
@@ -50,12 +125,12 @@
             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
-            display-name = "Lower";
+            display-name = "Numpad";
             bindings = <
-&kp LC(X)  &TD_SFBT  &kp F2   &kp F3    &kp F4   &kp C_VOL_UP    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS     &kp KP_DIVIDE    &trans
-&kp LC(C)  &kp F5    &kp F6   &kp F7    &kp F8   &kp C_VOL_DN    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY  &kp KP_NLCK
-&kp LC(V)  &kp F9    &kp F10  &kp F11   &kp F12  &kp C_MUTE      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
-                              &kp LGUI  &trans   &kp SPACE       &kp RET          &trans           &kp LALT
+&kp LC(X)  &TD_SFBT  &kp F2   &kp F3   &kp F4   &kp C_VOL_UP    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS     &kp KP_DIVIDE    &trans
+&kp LC(C)  &kp F5    &kp F6   &kp F7   &kp F8   &kp C_VOL_DN    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS      &kp KP_MULTIPLY  &kp KP_NLCK
+&kp LC(V)  &kp F9    &kp F10  &kp F11  &kp F12  &kp C_MUTE      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
+                              &trans   &trans   &trans          &trans           &trans           &trans
             >;
         };
 
@@ -66,13 +141,33 @@
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
-            display-name = "Raise";
+            display-name = "Symbol";
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+&trans  &TD_EXQ        &kp AT        &kp HASH   &TD_BSLS  &TD_SLEQ    &kp GRAVE  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp C_PAUSE    &none  &bootloader
+&trans  &kp DOLLAR     &kp PERCENT   &kp CARET  &TD_LPLB  &TD_RPRB    &kp TILDE  &kp INS          &kp HOME        &kp PAGE_UP    &none  &none
+&trans  &kp AMPERSAND  &kp ASTERISK  &TD_QST    &TD_LBLK  &TD_RBRK    &kp PIPE   &kp DELETE       &kp END         &kp PAGE_DOWN  &none  &none
+                                     &trans     &trans    &trans      &trans     &trans           &trans
             >;
+        };
+
+        both_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "Adjust";
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        adjust_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
