@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
@@ -143,19 +144,19 @@
 
             display-name = "Symbol";
             bindings = <
-&trans  &TD_EXQ        &kp AT        &kp HASH   &TD_BSLS  &TD_SLEQ    &kp GRAVE  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp C_PAUSE    &none  &bootloader
-&trans  &kp DOLLAR     &kp PERCENT   &kp CARET  &TD_LPLB  &TD_RPRB    &kp TILDE  &kp INS          &kp HOME        &kp PAGE_UP    &none  &none
-&trans  &kp AMPERSAND  &kp ASTERISK  &TD_QST    &TD_LBLK  &TD_RBRK    &kp PIPE   &kp DELETE       &kp END         &kp PAGE_DOWN  &none  &none
+&trans  &TD_EXQ        &kp AT        &kp HASH   &TD_BSLS  &TD_SLEQ    &kp GRAVE  &kp PRINTSCREEN  &kp SCROLLLOCK  &kp C_PAUSE    &kp LC(A)  &kp LC(Z)
+&trans  &kp DOLLAR     &kp PERCENT   &kp CARET  &TD_LPLB  &TD_RPRB    &kp TILDE  &kp INS          &kp HOME        &kp PAGE_UP    &kp LC(F)  &kp LC(Y)
+&trans  &kp AMPERSAND  &kp ASTERISK  &TD_QST    &TD_LBLK  &TD_RBRK    &kp PIPE   &kp DELETE       &kp END         &kp PAGE_DOWN  &kp LC(H)  &bootloader
                                      &trans     &trans    &trans      &trans     &trans           &trans
             >;
         };
 
         both_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none   &none   &none  &none  &none
+&none       &none         &none         &none         &bt BT_PRV    &bt BT_NXT      &none   &none   &none   &none  &none  &none
+&none       &none         &none         &none         &none         &none           &none   &none   &none   &none  &none  &none
+                                        &trans        &trans        &trans          &trans  &trans  &trans
             >;
 
             label = "Adjust";
