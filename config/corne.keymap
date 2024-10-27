@@ -29,8 +29,6 @@
             label = "TD_ALT";
             #binding-cells = <0>;
             bindings = <&kp RIGHT_ALT>, <&kp LEFT_ALT>;
-
-            tapping-term-ms = <100>;
         };
 
         TD_QST: TD_QST {
@@ -38,8 +36,6 @@
             label = "TD_QST";
             #binding-cells = <0>;
             bindings = <&kp QUESTION>, <&kp RC(SLASH)>;
-
-            tapping-term-ms = <100>;
         };
 
         TD_BSLS: TD_BSLS {
@@ -47,15 +43,12 @@
             label = "TD_BSLS";
             #binding-cells = <0>;
             bindings = <&kp BACKSLASH>, <&kp PIPE>;
-
-            tapping-term-ms = <100>;
         };
 
         TD_SLEQ: TD_SLEQ {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_SLEQ";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
             bindings = <&kp SLASH>, <&kp EQUAL>;
         };
 
@@ -71,15 +64,12 @@
             label = "TD_LPLB";
             #binding-cells = <0>;
             bindings = <&kp LEFT_PARENTHESIS>, <&kp LESS_THAN>;
-
-            tapping-term-ms = <100>;
         };
 
         TD_RPRB: TD_RPRB {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RPRB";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
             bindings = <&kp RIGHT_PARENTHESIS>, <&kp GREATER_THAN>;
         };
 
@@ -87,7 +77,6 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LBLK";
             #binding-cells = <0>;
-            tapping-term-ms = <101>;
             bindings = <&kp LEFT_BRACE>, <&kp LEFT_BRACKET>;
         };
 
@@ -95,7 +84,6 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RBRK";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
             bindings = <&kp RIGHT_BRACE>, <&kp RIGHT_BRACKET>;
         };
     };
