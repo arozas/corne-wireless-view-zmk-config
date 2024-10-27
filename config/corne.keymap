@@ -35,7 +35,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_QST";
             #binding-cells = <0>;
-            bindings = <&kp QUESTION>, <&kp RC(SLASH)>;
+            bindings = <&kp QUESTION>, <&kp LS(LC(LA(SLASH)))>;
         };
 
         TD_BSLS: TD_BSLS {
@@ -56,7 +56,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_EXQ";
             #binding-cells = <0>;
-            bindings = <&kp EXCL>, <&kp RA(EXCL)>;
+            bindings = <&kp EXCL>, <&kp LA(LC(LS(EXCLAMATION)))>;
         };
 
         TD_LPLB: TD_LPLB {
