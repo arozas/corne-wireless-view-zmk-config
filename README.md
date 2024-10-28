@@ -2,9 +2,13 @@
 
 Configuración personalizada para el teclado dividido y ergonómico Corne Wireless, utilizando el framework [ZMK Firmware](https://zmk.dev/). Esta configuración está optimizada para una experiencia inalámbrica utilizando los microcontroladores `nice!nano v2` y el adaptador `nice_view` para la pantalla.
 
+Los componentes fueron adquiridos en [Typeractive](https://typeractive.xyz/), de donde también se hizo fork al template básico para armar esta configuración.
+
 ## Descripción
 
 Este repositorio contiene los archivos de configuración necesarios para programar el teclado Corne Wireless (modelo de 6 columnas) con ZMK Firmware. La configuración incluye características para incrementar el alcance inalámbrico, activar modos de sueño profundo y un diseño de teclas en capas, pensado para maximizar la eficiencia y ergonomía al escribir en este teclado dividido.
+
+La principal intención al diseñar y configurar este teclado fue crear un dispositivo compacto y portátil. Se eligió la distribución DVORAK debido a su mayor ergonomía en comparación con la tradicional QWERTY, además de ser lo suficientemente pequeño y inalámbrico para facilitar su transporte de manera cómoda.
 
 ### Componentes
 
@@ -37,6 +41,8 @@ El `keymap` para el Corne Wireless está estructurado en varias capas para una m
 
 Esta es la capa predeterminada, diseñada en el diseño Dvorak para mayor ergonomía y velocidad de escritura.
 
+![default_layer](https://raw.githubusercontent.com/arozas/corne-wireless-view-zmk-config/refs/heads/master/img/default_layer.png)
+
 - **Teclas de Función**:
   - `TAB`, `BKSP` (Retroceso), `ESC` y `CTRL` están posicionadas estratégicamente en los bordes para su fácil acceso.
   - **GUI** (tecla de Windows o Command en Mac), **LWR** (acceso a la capa inferior), **RSE** (acceso a la capa superior) y **ALT** son teclas de función en la fila inferior.
@@ -49,15 +55,28 @@ Esta es la capa predeterminada, diseñada en el diseño Dvorak para mayor ergono
 
 Activa un teclado numérico y funciones relacionadas con Bluetooth y control del sistema.
 
-- **Teclas de Bluetooth**:
-  - `BTCLR` limpia todas las conexiones Bluetooth, mientras que `BT1`, `BT2`, etc., seleccionan dispositivos Bluetooth emparejados del 1 al 5.
+![lower_layer](https://raw.githubusercontent.com/arozas/corne-wireless-view-zmk-config/refs/heads/master/img/lower_layer.png)
 
-- **Control del Sistema**:
-  - `LFT`, `DWN`, `UP`, `RGT` controlan la navegación en pantalla, permitiendo desplazarse sin necesidad de ratón.
+- **Lado izquierdo**:
+  - Contiene teclas de función `F1` a `F12`, así como controles de volumen (`Vol+`, `Vol-`, `Mute`).
+  - `LC(X)`, `LC(C)`, y `LC(V)` corresponden a accesos rápidos para copiar (C), cortar (X), y pegar (V).
+
+- **Lado derecho**:
+  - Un teclado numérico completo (teclas `0` a `9`, con operaciones `+`, `-`, `*`, `/`, `NumLock`).
+
+- **Bootloader del lado izquierdo**:
+  - `TD_SFBT`:La tecla `F1` al precionarla dos veces seguidas activa el bootloader del lado izquierdo del teclado, para no tener hacerlo con la tecla reset fisica del teclado.
+
 
 #### 3. Capa Superior: **Símbolos**
 
 Esta capa proporciona un acceso rápido a caracteres especiales y comandos del sistema.
+
+![raise_layer](https://raw.githubusercontent.com/arozas/corne-wireless-view-zmk-config/refs/heads/master/img/raise_layer.png)
+
+**Notas**:
+  - **Lado Izquierdo**: Contiene símbolos especiales como `!`, `@`, `#`, combinaciones para caracteres especiales (`¿`, `¡`) y otros accesos rápidos.
+  - **Lado Derecho**: Incluye teclas de navegación (`Insert`, `Home`, `PgUp`, `End`, `PgDn`) y accesos directos (`PrintScreen`, `ScrollLock`, `Pause`), así como combinaciones (`LC(A)`, `LC(F)`, `LC(Y)` y `LC(H)` para accesos rápidos de letras específicas).
 
 - **Caracteres Especiales**:
   - La capa contiene símbolos básicos y avanzados como `!`, `@`, `#`, `$`, `%`, `^`, `&`, y más.
@@ -65,6 +84,13 @@ Esta capa proporciona un acceso rápido a caracteres especiales y comandos del s
     - `(`, `)`, `{`, `}`, `[`, `]` están disponibles para programación y edición de texto.
   - **Teclas de Línea de Comandos**:
     - `-`, `=`, `\`, `~`, y `|` permiten operaciones comunes en la línea de comandos.
+ - **Atajos**:
+    - Estos atajos hacen que sea más eficiente acceder estos comandos desde esta distribucíon ergonomica.
+    - `LC(A)`: Atajo de `Ctrl`+`A`, para tener a mano seleccionar todo.
+    - `LC(F)`: Atajo de `Ctrl`+`F`, para tener a mano buscar.
+    - `LC(H)`: Atajo de `Ctrl`+`H`, para tener a mano buscar y remplazar.
+    - `LC(Z)`: Atajo de `Ctrl`+`Z`, para tener a mano deshacer.
+    - `LC(Y)`: Atajo de `Ctrl`+`Y`, para tener a mano rehacer.
 
 - **Tap Dance**:
   - **TD_QST**: Alterna entre el símbolo `?` y el comando macro `ud_qst` para insertar el carácter `¿`.
@@ -75,12 +101,14 @@ Esta capa proporciona un acceso rápido a caracteres especiales y comandos del s
 
 La capa de ajustes se activa en combinación cuando están activas las capas **Lower** y **Raise**. Aquí se incluyen ajustes de Bluetooth y control de brillo de la pantalla.
 
+![both_layer](https://raw.githubusercontent.com/arozas/corne-wireless-view-zmk-config/refs/heads/master/img/both_layer.png)
+
 - **Control de Brillo**:
-  - `BR+` y `BR-` aumentan y disminuyen el brillo respectivamente.
+  - `BR+` y `BR-` aumentan y disminuyen el brillo del monitor respectivamente.
   - `AUTO` ajusta automáticamente el brillo.
 
 - **Opciones de Bluetooth**:
-  - `BT_CLR` borra las conexiones Bluetooth existentes.
+  - `BT_CLR` borra la conexión Bluetooth existente en el perfil seleccionado.
   - `BT_SEL 0` a `BT_SEL 4` permiten cambiar entre dispositivos emparejados.
   - `BT_PRV` y `BT_NXT` permiten navegar entre dispositivos emparejados en orden.
 
@@ -89,12 +117,13 @@ La capa de ajustes se activa en combinación cuando están activas las capas **L
 Dentro del keymap, también se definen **macros y comportamientos tap dance personalizados**:
 
 - **Tap Dances**:
-  - **TD_CAPS**: Shift izquierdo o Bloq Mayús, dependiendo de si se toca o se mantiene.
+  - Estos tap dance simples estan configurados para cambiar el comportamiento según se toque una o dos veces la  tecla.
+  - **TD_CAPS**: Shift izquierdo o Bloq Mayús.
   - **TD_SFBT**: Alterna entre F1 y el modo Bootloader para facilitar la programación.
-  - **TD_ALT**: Alterna entre Alt derecho y Alt izquierdo, dependiendo de la duración de la pulsación.
+  - **TD_ALT**: Alterna entre Alt derecho y Alt izquierdo.
   - **TD_QST**: Alterna entre `?` y el carácter `¿`.
   - **TD_BSLS**: Alterna entre `\` y `|`.
-  - **TD_LPLB** y **TD_RPRB**: Alterna entre paréntesis izquierdo y `«`, y paréntesis derecho y `»`.
+  - **TD_LPLB** y **TD_RPRB**: Alterna entre paréntesis, llaves izquierdo y `«`, y paréntesis, llaves derecho y `»`.
 
 - **Macros**:
   - **ud_qst**: Inserta `¿` mediante una combinación de teclas.
@@ -112,9 +141,9 @@ Este archivo manifiesto permite utilizar West para gestionar el repositorio ZMK 
 
 - [Git](https://git-scm.com/)
 - [West](https://docs.zephyrproject.org/latest/guides/west/index.html) (para clonar y compilar el proyecto)
-- Herramientas de programación compatibles con ZMK (por ejemplo, `nRF Connect`)
+- Herramientas de programación compatibles con ZMK.
 
-### Pasos para la Compilación
+### Pasos para la Compilación de forma  local:
 
 1. **Clonar el repositorio**:
    ```bash
@@ -130,10 +159,7 @@ Este archivo manifiesto permite utilizar West para gestionar el repositorio ZMK 
 
 3. **Cargar el firmware**: Usa una herramienta compatible para cargar el firmware compilado en los módulos `nice!nano v2` de tu Corne Wireless.
 
-## Contribuciones
-
-Para contribuir, realiza un fork del repositorio y crea un pull request con tus cambios. Nos encanta recibir sugerencias de mejora y configuraciones alternativas.
-
 ## Créditos
 
 Basado en el trabajo de [ZMK Contributors](https://zmk.dev/).
+Tomado como base el repositorio orginal de [Typeractive](https://typeractive.xyz/).
