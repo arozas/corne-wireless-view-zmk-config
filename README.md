@@ -96,6 +96,9 @@ Esta capa proporciona un acceso rápido a caracteres especiales y comandos del s
   - **TD_QST**: Alterna entre el símbolo `?` y el comando macro `ud_qst` para insertar el carácter `¿`.
   - **TD_BSLS**: Alterna entre `\` y `|`.
   - **TD_LPLB** y **TD_RPRB**: Alterna entre paréntesis izquierdo y `«`, y paréntesis derecho y `»` respectivamente.
+ 
+  - **Bootloader del lado derecho**:
+  - `bootloader`:La tecla `bootloader` al precionarla dos veces seguidas activa el bootloader del lado derecho del teclado, para no tener hacerlo con la tecla reset fisica del teclado.
 
 #### 4. Capa de Ajustes (condicional): **Both**
 
