@@ -105,7 +105,7 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press &kp LEFT_ALT>,
-                <&macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_8>,
+                <&macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_6 &kp KP_NUMBER_1>,
                 <&macro_release &kp LEFT_ALT>;
 
             label = "UD_EXC";
